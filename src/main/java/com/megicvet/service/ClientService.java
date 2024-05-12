@@ -36,7 +36,7 @@ public class ClientService {
         String lastName = "";
         client.setEmail(email);
 
-        // first name  validation
+        // first name validation
 
         while (!isLastNameValid(firstName)) {
             System.out.print("First name: ");
@@ -45,8 +45,9 @@ public class ClientService {
                 System.out.println("Invalid first name. Name must contain minimum 3 letters. Try again.");
             }
         }
+        client.setFirstName(firstName);
 
-        // first name  validation
+        // first name validation
 
         while (!isLastNameValid(lastName)) {
             System.out.print("Last name: ");
@@ -55,6 +56,7 @@ public class ClientService {
                 System.out.println("Invalid last name. Name must contain minimum 3 letters.Try again.");
             }
         }
+        client.setLastName(lastName);
 
         return client;
 
