@@ -8,7 +8,9 @@ import java.util.regex.Pattern;
 
 public class ClientService {
 
-    private static String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    final private static String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    final private static String FIRST_NAME_PATTERN = "^[A-Za-z-]{3,}";
+    final private static String LAST_NAME_PATTERN = "^[A-Za-z-]{3,}";
 
     public Client registerNewClient() {
         Client client = null;
@@ -30,21 +32,55 @@ public class ClientService {
 
     private static Client buildClient(String email) {
         Client client = new Client();
+        String firstName = "";
+        String lastName = "";
         client.setEmail(email);
 
-        System.out.print("First name: ");
-        client.setFirstName(Main.SCANNER.nextLine());
+        // first name  validation
 
-        System.out.print("Last name: ");
-        client.setLastName(Main.SCANNER.nextLine());
+        while (!isLastNameValid(firstName)) {
+            System.out.print("First name: ");
+            firstName = Main.SCANNER.nextLine();
+            if (!isFirstNameValid(firstName)) {
+                System.out.println("Invalid first name.");
+            }
+        }
+
+        // first name  validation
+
+        while (!isLastNameValid(lastName)) {
+            System.out.print("Last name: ");
+            lastName = Main.SCANNER.nextLine();
+            if (!isLastNameValid(lastName)) {
+                System.out.println("Invalid last name.");
+            }
+        }
 
         return client;
 
     }
+
     private static boolean isEmailValid(String email) {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         Matcher matcher = pattern.matcher(email);
 
         return matcher.matches();
+
     }
+
+    private static boolean isFirstNameValid(String firstName) {
+        Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
+        Matcher matcher = pattern.matcher(firstName);
+
+        return matcher.matches();
+
+    }
+
+    private static boolean isLastNameValid(String lastName) {
+        Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
+        Matcher matcher = pattern.matcher(lastName);
+
+        return matcher.matches();
+    }
+
 }
