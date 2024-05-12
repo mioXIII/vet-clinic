@@ -42,7 +42,7 @@ public class ClientService {
             System.out.print("First name: ");
             firstName = Main.SCANNER.nextLine();
             if (!isFirstNameValid(firstName)) {
-                System.out.println("Invalid first name.");
+                System.out.println("Invalid first name. Name must contain minimum 3 letters. Try again.");
             }
         }
 
@@ -52,7 +52,7 @@ public class ClientService {
             System.out.print("Last name: ");
             lastName = Main.SCANNER.nextLine();
             if (!isLastNameValid(lastName)) {
-                System.out.println("Invalid last name.");
+                System.out.println("Invalid last name. Name must contain minimum 3 letters.Try again.");
             }
         }
 
