@@ -7,6 +7,16 @@ public class Client {
     private String email;
     private Pet pet;
 
+    @Override
+    public String toString() {
+        return "Client {"
+                + "\n\tfirstName = " + firstName
+                + ", lastName = " + lastName
+                + ", email = " + email
+                + ",\n\tpet = " + pet
+                + "\n}";
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
