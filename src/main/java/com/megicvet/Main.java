@@ -1,11 +1,8 @@
 package main.java.com.megicvet;
 
 import main.java.com.megicvet.component.ApplicationRunner;
-import main.java.com.megicvet.model.Client;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
 
