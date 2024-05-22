@@ -22,8 +22,7 @@ public class PetService {
             System.out.println("Unknown pet type");
         }
 
-        return pet;
-    }
+        return pet;}
 
     private Pet buildPet(String type) {
         Pet pet = type.equals(CAT_TYPE) ? new Cat() : new Dog();
@@ -39,8 +38,9 @@ public class PetService {
         pet.setSex(Main.SCANNER.nextLine());
 
         if (type.equals(DOG_TYPE)){
-            System.out.println("Size(xS / S / M / L / xxL): ");
-            ((Dog) pet).setSize(Main.SCANNER.nextLine());
+            System.out.println("Size(XS / S / M / L / XL): ");
+            String size = Main.SCANNER.nextLine();
+            ((Dog) pet).setSize(Dog.Size.valueOf(size));
         }
 
         return pet;
