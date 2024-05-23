@@ -1,11 +1,16 @@
 package main.java.com.megicvet.model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Client {
 
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
     private String firstName;
     private String lastName;
     private String email;
     private Pet pet;
+    final private LocalDateTime reistrationDate = LocalDateTime.now();
 
     @Override
     public String toString() {
@@ -14,6 +19,7 @@ public class Client {
                 + ", lastName = " + lastName
                 + ", email = " + email
                 + ",\n\tpet = " + pet
+                + ", registrationDate = " + reistrationDate.format(FORMATTER)
                 + "\n}";
     }
 
