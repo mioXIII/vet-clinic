@@ -19,7 +19,7 @@ public class Client {
                 + ", lastName = " + lastName
                 + ", email = " + email
                 + ",\n\tpet = " + pet
-                + ", registrationDate = " + reistrationDate.format(FORMATTER)
+                + ", clientRegistrationDate = " + reistrationDate.format(FORMATTER)
                 + "\n}";
     }
 

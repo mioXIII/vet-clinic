@@ -22,7 +22,7 @@ public abstract class Pet {
                 + ", age = " + age
                 + ", name = " + name
                 + ", ownerName = " + ownerName
-                + ", registrationDate = " + reistrationDate.format(FORMATTER)
+                + ", petRegistrationDate = " + reistrationDate.format(FORMATTER)
                 + "}";
     }
 
