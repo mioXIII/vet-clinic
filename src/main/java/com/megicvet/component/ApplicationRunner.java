@@ -20,7 +20,7 @@ public class ApplicationRunner {
 
                 //checking the need to create a pet
 
-                System.out.print("Wish you to add pet? (y/n): ");
+                System.out.print("Want to add pet? (y/n): ");
                 String answear = Main.SCANNER.nextLine();
 
                 if (answear.equals("y")) {
