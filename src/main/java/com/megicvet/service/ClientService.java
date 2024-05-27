@@ -47,7 +47,7 @@ public class ClientService {
         }
         client.setFirstName(firstName);
 
-        // first name validation
+        // last name validation
 
         while (!isLastNameValid(lastName)) {
             System.out.print("Last name: ");
