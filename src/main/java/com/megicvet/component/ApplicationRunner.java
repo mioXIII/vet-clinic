@@ -9,7 +9,7 @@ import main.java.com.megicvet.service.PetService;
 public class ApplicationRunner {
 
     private ClientService clientService = new ClientService();
-    private PetService petService= new PetService();
+    private PetService petService = new PetService();
 
 
     public void run() {
@@ -20,30 +20,35 @@ public class ApplicationRunner {
 
                 //checking the need to create a pet
 
-                System.out.print("Want to add pet? (y/n): ");
-                String answear = Main.SCANNER.nextLine();
+                boolean needToAdd = true;
 
-                if (answear.equals("y")) {
+                while (needToAdd) {
+                    System.out.print("Want to add pet? (y/n): ");
+                    String answear = Main.SCANNER.nextLine();
 
-                System.out.println("Adding a new pet.");
+                    if (answear.equals("y")) {
 
-                Pet pet = petService.registerNewPet();
+                        System.out.println("Adding a new pet.");
 
-                if (pet != null){
-                client.setPet(pet);
-                pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
-                System.out.println("Pet has been added.");
-                }
-                System.out.println(client);
-                }
-                else if (answear.equals("n")) {
-                    System.out.println("New client has benn added: " + client);
-                } else {
-                    System.out.println("Invalid input!");
+                        Pet pet = petService.registerNewPet();
+
+                        if (pet != null) {
+                            client.setPet(pet);
+                            pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
+                            System.out.println("Pet has been added.");
+                        }
+                        System.out.println(client);
+                    } else if (answear.equals("n")) {
+                        System.out.println("New client has benn added: " + client);
+                        needToAdd = false;
+                    } else {
+                        System.out.println("Invalid input!");
+                    }
                 }
             }
         }
     }
-
 }
+
+
 

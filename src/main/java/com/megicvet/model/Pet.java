@@ -26,6 +26,8 @@ public abstract class Pet {
                 + "}";
     }
 
+
+
     public void setType(String type) {
         this.type = type;
     }
@@ -64,5 +66,13 @@ public abstract class Pet {
 
     public String getOwnerName() {
         return ownerName;
+    }
+
+    public LocalDateTime getReistrationDate() {
+        return reistrationDate;
+    }
+
+    public static DateTimeFormatter getFORMATTER() {
+        return FORMATTER;
     }
 }
