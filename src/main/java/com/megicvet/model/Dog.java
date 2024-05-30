@@ -26,6 +26,53 @@ public class Dog extends Pet{
                 + ", petRegistrationDate = " + super.getReistrationDate().format(getFORMATTER())
                 + "}";
     }
+    @Override
+    public boolean equals(Object object){
+        if (this == object) {
+            return true;
+        }
+
+        if (object == null || this.getClass() != object.getClass()){
+            return false;
+        }
+
+        Pet pet = (Pet) object;
+
+        if (super.getType() != ((Pet) object).getType()){
+            return false;
+        }
+
+        if (super.getSex() != ((Pet) object).getSex()){
+            return false;
+        }
+
+        if (super.getName() != ((Pet) object).getName()){
+            return false;
+        }
+
+        if (!super.getOwnerName().equals(((Pet) object).getOwnerName())){
+            return false;
+        }
+
+        if (this.getSize() != ((Dog) object).getSize()){
+            return false;
+        }
+
+        return super.getName() !=null ? super.getName().equals(((Pet) object).getName()) : ((Pet) object).getName() == null;
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 13;
+        result = 17 *
+                getName().hashCode() *
+                getAge().hashCode() *
+                getSex().hashCode() *
+                getType().hashCode() *
+                getOwnerName().hashCode() *
+                getSize().hashCode();
+        return result;
+    }
 
     public void setSize(Size size) {
         this.size = size;

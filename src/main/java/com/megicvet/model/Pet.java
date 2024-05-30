@@ -26,6 +26,48 @@ public abstract class Pet {
                 + "}";
     }
 
+    @Override
+    public boolean equals(Object object){
+        if (this == object) {
+            return true;
+        }
+
+        if (object == null || this.getClass() != object.getClass()){
+            return false;
+        }
+
+        Pet pet = (Pet) object;
+
+        if (this.type != ((Pet) object).getType()){
+            return false;
+        }
+
+        if (this.sex != ((Pet) object).getSex()){
+            return false;
+        }
+
+        if (this.age != ((Pet) object).getAge()){
+            return false;
+        }
+
+        if (!this.ownerName.equals(((Pet) object).getOwnerName())){
+            return false;
+        }
+
+        return this.name !=null ? this.name.equals(((Pet) object).getName()) : ((Pet) object).getName() == null;
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 13;
+        result = 17 *
+                getName().hashCode() *
+                getAge().hashCode() *
+                getSex().hashCode() *
+                getType().hashCode() *
+                getOwnerName().hashCode();
+        return result;
+    }
 
 
     public void setType(String type) {
@@ -67,6 +109,7 @@ public abstract class Pet {
     public String getOwnerName() {
         return ownerName;
     }
+
 
     public LocalDateTime getReistrationDate() {
         return reistrationDate;
