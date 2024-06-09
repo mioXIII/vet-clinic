@@ -11,6 +11,7 @@ public class Client {
     private String email;
     private Pet pet;
     final private LocalDateTime reistrationDate = LocalDateTime.now();
+    private Location location;
 
     @Override
     public String toString() {
@@ -18,6 +19,7 @@ public class Client {
                 + "\n\tfirstName = " + firstName
                 + ", lastName = " + lastName
                 + ", email = " + email
+                + ", location = " + location
                 + ",\n\tpet = " + pet
                 + ", clientRegistrationDate = " + reistrationDate.format(FORMATTER)
                 + "\n}";
@@ -47,11 +49,23 @@ public class Client {
         return email;
     }
 
-    public Pet getPet() {
+    public Pet getPets() {
         return pet;
     }
 
-    public void setPet(Pet pet) {
+    public void setPets(Pet pet) {
         this.pet = pet;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public enum Location{
+        KYIV, LVIV, ODESA
     }
 }

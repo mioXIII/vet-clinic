@@ -8,47 +8,15 @@ import main.java.com.megicvet.service.PetService;
 
 public class ApplicationRunner {
 
-    private ClientService clientService = new ClientService();
-    private PetService petService = new PetService();
-
+    final private EntityRegister register = new EntityRegister();
 
     public void run() {
         if (Authenicator.auth()) {
-            Client client = clientService.registerNewClient();
-
-            if (client != null) {
-
-                //checking the need to create a pet
-
-                boolean needToAdd = true;
-
-                while (needToAdd) {
-                    System.out.print("Want to add pet? (y/n): ");
-                    String answear = Main.SCANNER.nextLine();
-
-                    if (answear.equals("y")) {
-
-                        System.out.println("Adding a new pet.");
-
-                        Pet pet = petService.registerNewPet();
-
-                        if (pet != null) {
-                            client.setPet(pet);
-                            pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
-                            System.out.println("Pet has been added.");
-                        }
-                        System.out.println(client);
-                    } else if (answear.equals("n")) {
-                        System.out.println("New client has benn added: " + client);
-                        needToAdd = false;
-                    } else {
-                        System.out.println("Invalid input!");
-                    }
-                }
-            }
+            register.registerClients();
         }
     }
+
+
+
+
 }
-
-
-
